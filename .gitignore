@@ -108,7 +108,6 @@ celerybeat.pid
 .venv
 env/
 venv/
-/02_IntroductionToDjango/my_venv/*
 env.bak/
 venv.bak/
 
@@ -132,3 +131,6 @@ dmypy.json
 
 # Jetbrains Intellij IDEA
 .idea/
+
+# node modules
+/node_modules/

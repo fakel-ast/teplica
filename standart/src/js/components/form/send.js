@@ -26,7 +26,7 @@ class SendForm {
     async sendRequest() {
         let Form_Data = new FormData(this.form);
 
-        let json = await makeRequest(this.form.method, this.form.action, Form_Data, false);
+        let json = await makeRequest(this.form.method, this.form.action, Form_Data);
         this.stopLoading();
         this.validate(json);
     }

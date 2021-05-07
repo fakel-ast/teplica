@@ -1,4 +1,6 @@
 import Modal from "./modal";
+import MakeRequest from "./make_request"
+import makeRequest from "./make_request";
 
 class changeCity {
     constructor(citiesList) {
@@ -14,6 +16,7 @@ class changeCity {
            item.addEventListener('click', event => {
                event.preventDefault();
                this.makeChange(event.target);
+               this.sendRequest(event.target);
            })
         });
     }
@@ -33,13 +36,23 @@ class changeCity {
             item.innerText = address;
         });
         document.querySelectorAll('[data-phone-change]').forEach(item => {
-            item.href = `tel:${phone.replaceAll('-', '')}`;
+            item.href = `tel:${phone.replaceAll(/[^0-9]/g, '')}`;
         });
 
         let modal = document.querySelector('.modal.open');
         modal = new Modal(modal);
         modal.closeModal();
     }
+
+    async sendRequest(city) {
+
+        let data = {
+            'site_domain': city.getAttribute('data-domain')
+        }
+        data = '?' + new URLSearchParams(data).toString();
+        await makeRequest('get', city.getAttribute('href') + data, data);
+    }
+
 }
 
 

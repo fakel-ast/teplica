@@ -1,0 +1,15 @@
+{% load static %}
+
+<li class="comments__item">
+    <div class="comments__img">
+        <img src="{% if comment.image %}{{ comment.image.url }} {% else %} {% static 'images/comment_not_image.png' %}{% endif %}" alt="{{ comment.fio }}">
+    </div>
+    <div class="comments__content">
+        <p class="comments__name">
+            {{ comment.fio }}
+        </p>
+        <p class="comments__text">
+            {{ comment.text }}
+        </p>
+    </div>
+</li>

@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-0tuq_n*c)x&zhdt@b*#7okvp)getqcd_b_)r3+49ketyr^p518
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +45,11 @@ INSTALLED_APPS = [
     'main',
 
 ]
+
+
+# sites
+SITE_ID = 2
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -68,6 +74,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # custom
+                'main.context_processors.website_settings',
             ],
         },
     },

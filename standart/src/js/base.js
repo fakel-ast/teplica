@@ -1,4 +1,5 @@
 import "./components/header";
+import "./components/anime";
 import "./components/mask";
 import "./components/modal";
 import "./components/simplebar";

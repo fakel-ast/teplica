@@ -32,6 +32,9 @@ class changeCity {
         document.querySelectorAll('[data-change="address"]').forEach(item => {
             item.innerText = address;
         });
+        document.querySelectorAll('[data-phone-change]').forEach(item => {
+            item.href = `tel:${phone.replaceAll('-', '')}`;
+        });
 
         let modal = document.querySelector('.modal.open');
         modal = new Modal(modal);

@@ -33,16 +33,16 @@
                 <nav class="header__menu">
                     <ul class="header__list">
                         <li class="header__item">
-                            <a class="header__link" href="#">Каталог</a>
+                            <a class="header__link" href="#catalog">Каталог</a>
                         </li>
                         <li class="header__item">
-                            <a class="header__link" href="#">Расчет стоимости</a>
+                            <a class="header__link" href="#callback">Расчет стоимости</a>
                         </li>
                         <li class="header__item">
-                            <a class="header__link" href="#">Партнеры</a>
+                            <a class="header__link" href="#partners">Партнеры</a>
                         </li>
                         <li class="header__item">
-                            <a class="header__link" href="#">Отзывы</a>
+                            <a class="header__link" href="#comments">Отзывы</a>
                         </li>
                     </ul>
                 </nav>
@@ -62,7 +62,7 @@
                         <use xlink:href="{% static 'images/sprite.svg' %}#phone"></use>
                       </svg>
                      <p class="call__phone header__info-title" data-change="phone">8-985-344-76-46</p>
-                     <a class="call-order header__info-link" href="tel:89853447646" >Заказать звонок</a>
+                     <a class="call-order header__info-link" href="tel:89853447646" data-phone-change="true">Заказать звонок</a>
                  </div>
             </div>
         </div>
@@ -135,12 +135,36 @@
         {# section stock start #}
         <section class="section-stock">
             <div class="container">
-                <h2 class="stock__title section-title">ВСЕГДА В НАЛИЧИИ</h2>
+                <h2 class="stock__title section-title" id="catalog">ВСЕГДА В НАЛИЧИИ</h2>
                 <div class="stock__list">
                     <div class="product-card">
                         <div class="product-card__img">
-                            <a href="{% static 'images/product_1.jpg' %}" data-fancybox="gallery">
+                            <a href="{% static 'images/product_1_big.jpg' %}" data-fancybox="gallery">
                                 <img src="{% static 'images/product_1.jpg' %}" alt="Т-образная краб-система 20х20">
+                            </a>
+                        </div>
+                        <div class="product-card-content">
+                            <a class="product-card__title" href="#">
+                                Т-образная краб-система 20х20
+                            </a>
+                            <form action="" class="product-card__form product-form">
+                                <p class="product-card__price">
+                                    20 руб/комп
+                                </p>
+                                <div class="product-form-order">
+                                    <label class="product-form__label">
+                                        <input class="product-form__input" min="0"  type="number" name="product_count" id="product_1" value="0">
+                                        комп.
+                                    </label>
+                                    <button class="btn btn-order" type="submit">Заказать</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card__img fancybox">
+                            <a href="{% static 'images/product_2_big.jpg' %}" data-fancybox="gallery">
+                                <img src="{% static 'images/product_2.jpg' %}" alt="Т-образная краб-система 20х20">
                             </a>
                         </div>
                         <div class="product-card-content">
@@ -163,15 +187,15 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="product-card__img fancybox">
-                            <a href="{% static 'images/product_1.jpg' %}" class="fancybox" data-fancybox="gallery">
-                                <img src="{% static 'images/product_1.jpg' %}" alt="Т-образная краб-система 20х20">
+                        <div class="product-card__img">
+                            <a href="{% static 'images/product_3_big.jpg' %}" data-fancybox="gallery">
+                                <img src="{% static 'images/product_3.jpg' %}" alt="Т-образная краб-система 20х20">
                             </a>
                         </div>
                         <div class="product-card-content">
-                            <p class="product-card__title">
+                            <a class="product-card__title" href="#">
                                 Т-образная краб-система 20х20
-                            </p>
+                            </a>
                             <form action="" class="product-card__form product-form">
                                 <p class="product-card__price">
                                     20 руб/комп
@@ -189,12 +213,14 @@
                     </div>
                     <div class="product-card">
                         <div class="product-card__img">
-                            <img src="{% static 'images/product_1.jpg' %}" alt="Т-образная краб-система 20х20">
+                            <a href="{% static 'images/product_4_big.jpg' %}" data-fancybox="gallery">
+                                <img src="{% static 'images/product_4.jpg' %}" alt="Т-образная краб-система 20х20">
+                            </a>
                         </div>
                         <div class="product-card-content">
-                            <p class="product-card__title">
+                            <a class="product-card__title" href="#">
                                 Т-образная краб-система 20х20
-                            </p>
+                            </a>
                             <form action="" class="product-card__form product-form">
                                 <p class="product-card__price">
                                     20 руб/комп
@@ -210,32 +236,6 @@
                             </form>
                         </div>
                     </div>
-                    <div class="product-card">
-                        <div class="product-card__img">
-                            <img src="{% static 'images/product_1.jpg' %}" alt="Т-образная краб-система 20х20">
-                        </div>
-                        <div class="product-card-content">
-                            <p class="product-card__title">
-                                Т-образная краб-система 20х20
-                            </p>
-                            <form action="" class="product-card__form product-form">
-                                <p class="product-card__price">
-                                    20 руб/комп
-                                </p>
-
-                                <div class="product-form-order">
-                                    <label class="product-form__label">
-                                        <input class="product-form__input" min="0"  type="number" name="product_count" id="product_1" value="0">
-                                        комп.
-                                    </label>
-                                    <button class="btn btn-order" type="submit">Заказать</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-
-
                 </div>
             </div>
         </section>
@@ -320,7 +320,7 @@
         {# section production end #}
 
          {# section callback start #}
-        <section class="section-callback">
+        <section class="section-callback" id="callback">
             <div class="container">
                 <form class="callback__form form" action="">
                     <h2 class="form__title">
@@ -360,7 +360,7 @@
         {# section callback end #}
 
         {# section partners start #}
-        <section class="section-partners">
+        <section class="section-partners" id="partners">
             <div class="container">
                 <h2 class="partners__title section-title">Наши партнеры</h2>
                 <ul class="partners__list">
@@ -385,7 +385,7 @@
         {# section partners end #}
 
         {# section partners start #}
-        <section class="section-comments">
+        <section class="section-comments" id="comments">
             <div class="container">
                 <h2 class="comments__title section-title">Отзывы наших клиентов</h2>
                 <div class="comments">
@@ -473,7 +473,7 @@
                      <svg class="footer__text-svg footer__svg-phone">
                         <use xlink:href="{% static 'images/sprite.svg' %}#phone"></use>
                      </svg>
-                    <a href="tel:89853447646" class="footer-text__phone" data-change="phone">
+                    <a href="tel:89853447646" class="footer-text__phone" data-change="phone" data-phone-change="true">
                          8-985-344-76-46
                     </a>
                 </div>
@@ -494,72 +494,11 @@
                         <a class="modal__link" href="#" data-city="Вологда" data-phone="8-888-888-88-88" data-address="Вологда, ул маши">Вологда</a>
                     </li>
                     <li class="modal__item">
-                        <a class="modal__link" href="#">Питер</a>
+                        <a class="modal__link" href="#" data-city="Питер" data-phone="8-985-222-76-46" data-address="Питер, ул. Лениниа">Питер</a>
                     </li>
                     <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
+                        <a class="modal__link" href="#" data-city="Воронеж" data-phone="8-111-111-11-11" data-address="Воронеж, красный дом">Воронеж</a>
                     </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Москва</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Вологда</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Питер</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Москва</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Вологда</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Питер</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Москва</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Вологда</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Питер</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-                    <li class="modal__item">
-                        <a class="modal__link" href="#">Воронеж</a>
-                    </li>
-
                 </ul>
             </div>
         </div>

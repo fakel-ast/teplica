@@ -1,0 +1,8 @@
+@import "../video";
+
+.section-production {
+    padding: 76px 0;
+    background: url("/static/images/production_background.jpg") no-repeat center;
+    background-size: cover;
+    @include section-mobile-padding(76, 76);
+}

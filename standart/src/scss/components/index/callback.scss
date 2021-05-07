@@ -1,0 +1,29 @@
+.section-callback {
+    padding: 133px 0;
+    background: url("/static/images/callback_background.jpg") no-repeat center;
+    background-size: cover;
+    @include section-mobile-padding(133, 133, $min_pt: 49, $min_pb: 49);
+}
+
+.callback {
+    &__form {
+        margin-left: auto;
+        max-width: 452px;
+        padding: 42px 25px 41px 25px;
+        background-color: #fff;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-callback {
+        background-image: url("/static/images/callback_mobile_background.png");
+    }
+    .callback {
+        &__form {
+            margin: 0 auto;
+            max-width: calcFluid(234, 452, 320, 768);
+            padding: calcFluid(26, 41, 320, 768) 25px;
+        }
+    }
+}

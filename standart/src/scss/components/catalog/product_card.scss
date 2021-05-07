@@ -1,0 +1,89 @@
+.product-card {
+    padding-bottom: 18px;
+    background-color: #fff;
+    min-width: 290px;
+    max-width: 320px;
+    transition: box-shadow .2s linear;
+
+    &:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    &__img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &-content {
+        margin-top: 16px;
+        padding: 0 18px;
+    }
+
+    &__title {
+        margin-bottom: 16px;
+        @include font-main-text;
+    }
+
+    &__price {
+        font-family: $montserrat;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+
+.product-form {
+    display: flex;
+    justify-content: space-between;
+    &__input {
+        width: 40px;
+        height: 20px;
+        border: 0.5px solid #C9C9C9;
+        border-radius: 3px;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            appearance: none;
+        }
+    }
+
+    &-order {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    &__label, &__input {
+        font-family: $noto_sans;
+        font-size: 14px;
+        line-height: 19px;
+        text-align: center;
+    }
+
+    &__label {
+        margin-bottom: 19px;
+    }
+
+}
+
+@media (max-width: 991px) {
+    .product-card {
+        &-content {
+            margin-top: calcFluid(13, 16, 320, 991);
+        }
+
+        &__title, .btn-order {
+            font-size: calcFluid(12, 18, 320, 991);
+            line-height: calcFluid(17, 25, 320, 991);
+        }
+
+        &__price {
+            font-size: calcFluid(16, 18, 320, 991);
+            line-height: calcFluid(20, 22, 320, 991);
+        }
+
+        &__label {
+            font-size: calcFluid(12, 14, 320, 991);
+            line-height: calcFluid(17, 19, 320, 991);
+        }
+    }
+}

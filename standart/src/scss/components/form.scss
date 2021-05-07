@@ -1,0 +1,147 @@
+$phone_svg: "data:image/svg+xml," + "%3Csvg%20width%3D%2217%22%20height%3D%2217%22%20viewBox%3D%220%200%2017%2017%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M12.1154%2017C5.435%2017%200%2011.565%200%204.88456C0.00128642%203.6897%200.437511%202.53618%201.22719%201.63947C2.01686%200.742764%203.10597%200.1642%204.29108%200.0118583C4.64303%20-0.0306618%204.99929%200.0418382%205.30663%200.218526C5.61397%200.395213%205.85589%200.666603%205.99624%200.992145L7.64083%204.82963C7.74751%205.07774%207.79102%205.34843%207.76746%205.61747C7.7439%205.88652%207.65402%206.14552%207.50584%206.37132L6.24797%208.29342C6.80815%209.34757%207.6729%2010.2085%208.7295%2010.7641L10.6203%209.50324C10.8467%209.3517%2011.1075%209.25924%2011.3787%209.23431C11.65%209.20937%2011.9233%209.25275%2012.1735%209.36048L16.0078%2011.0038C16.3334%2011.144%2016.6049%2011.3859%2016.7816%2011.6932C16.9584%2012.0006%2017.0308%2012.3569%2016.9881%2012.7089C16.8358%2013.894%2016.2572%2014.9831%2015.3605%2015.7728C14.4638%2016.5625%2013.3103%2016.9987%2012.1154%2017ZM4.29181%202.00264C3.63318%202.14514%203.04316%202.50875%202.6198%203.03303C2.19644%203.55731%201.96526%204.21069%201.96467%204.88456C1.9677%207.57578%203.03813%2010.1559%204.94111%2012.0589C6.84409%2013.9619%209.42422%2015.0323%2012.1154%2015.0353C12.7893%2015.0347%2013.4427%2014.8035%2013.9669%2014.3802C14.4912%2013.9568%2014.8548%2013.3668%2014.9974%2012.7082L11.5627%2011.2362L9.66092%2012.5044C9.42515%2012.6617%209.15253%2012.7552%208.86979%2012.7755C8.58704%2012.7958%208.30386%2012.7423%208.04801%2012.6203C6.45864%2011.8501%205.1728%2010.5701%204.39537%208.98424C4.27276%208.72992%204.21797%208.44821%204.23633%208.16647C4.25469%207.88472%204.34557%207.61251%204.50015%207.37625L5.76597%205.4422L4.29181%202.00264Z%22%20fill%3D%22%23939393%22%2F%3E%0A%3C%2Fsvg%3E%0A";
+$email_svg: "data:image/svg+xml," + "%3Csvg%20width%3D%2218%22%20height%3D%2214%22%20viewBox%3D%220%200%2018%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M18%201.75C18%200.7875%2017.19%200%2016.2%200H1.8C0.81%200%200%200.7875%200%201.75V12.25C0%2013.2125%200.81%2014%201.8%2014H16.2C17.19%2014%2018%2013.2125%2018%2012.25V1.75ZM16.2%201.75L9%206.125L1.8%201.75H16.2ZM16.2%2012.25H1.8V3.5L9%207.875L16.2%203.5V12.25Z%22%20fill%3D%22%23939393%22%2F%3E%0A%3C%2Fsvg%3E%0A";
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        margin-bottom: 11px;
+        @include font-section-title;
+    }
+    &__description {
+        margin-bottom: 45px;
+        @include font-main-text;
+    }
+    &-element {
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+        padding: 0 31px;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 32px 58px 27px 58px;
+        border: 1px solid $grey;
+        border-radius: 5px;
+        color: $grey;
+        font-family: $montserrat;
+        font-size: 16px;
+        line-height: 160%;
+        &::placeholder {
+            color: $grey;
+            transition: opacity .2s linear;
+        }
+    }
+
+    &__input.focus {
+        background: none;
+        &::placeholder {
+            opacity: 0;
+        }
+    }
+
+    &__phone {
+        background: url($phone_svg) no-repeat top 51% left 31px, #fff;
+    }
+    &__email {
+        background: url($email_svg) no-repeat top 53% left 32px, #fff;
+    }
+    &__button {
+        width: 100%;
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__acceptance {
+        display: flex;
+        align-items: center;
+        font-family: $montserrat;
+        font-size: 11px;
+        line-height: 130%;
+    }
+}
+
+.custom-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    border: 0.5px solid $green;
+    border-radius: 2px;
+    transition: background-color .2s linear;
+
+    @include _768 {
+        margin-right: calcFluid(5, 8, 320, 768);
+        width: calcFluid(7.5, 14, 320, 768);
+        height: calcFluid(8.5, 14, 320, 768);
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8px;
+        height: 6px;
+        background: url($check) no-repeat;
+        opacity: 0;
+        transition: opacity .2s linear;
+    }
+
+    &.active {
+        background-color: $green;
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .form {
+        &-element {
+            padding: 0 calcFluid(0, 31, 320, 768);
+            &:not(:last-child) {
+                margin-bottom: calcFluid(10, 20, 320, 768);
+            }
+        }
+        &__description {
+            margin-bottom: calcFluid(24, 45, 320, 768);
+        }
+        &__input {
+            padding: calcFluid(17, 32, 320, 768) calcFluid(31, 58, 320, 768) calcFluid(14, 27, 320, 768) calcFluid(31, 58, 320, 768);
+            font-size: calcFluid(8, 16, 320, 768);
+            background-size: calcFluid(9, 17, 320, 768) calcFluid(9, 17, 320, 768);
+        }
+        &__phone {
+            background-position: top 51% left 17px;
+        }
+        &__email {
+            background-position: top 53% left 17px;
+        }
+        &__button {
+            font-size: calcFluid(13, 20, 320, 768);
+            padding: calcFluid(8, 18, 320, 768) 10px;
+        }
+        &__acceptance {
+            font-size: calcFluid(6, 11, 320, 768);
+        }
+    }
+    .custom-checkbox {
+        &::before {
+            background-size: 9px calcFluid(5, 7, 320, 768);
+        }
+    }
+}
+
+.form {
+    &consultation {
+
+    }
+}

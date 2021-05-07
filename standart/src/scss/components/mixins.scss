@@ -1,0 +1,103 @@
+
+@function calcFluid($f-min, $f-max, $v-min, $v-max) {
+	$k: ($f-max - $f-min)/($v-max - $v-min);
+	$b: $f-min - $k * $v-min;
+
+	$b: $b * 1px;
+
+	@return calc( #{$k} * 100vw + #{$b} );
+}
+
+// For media
+@mixin _1310 {
+	@media (max-width: 1400px ) {
+		@content;
+	}
+}
+
+@mixin _1200 {
+	@media (max-width: 1200px) {
+		@content;
+	}
+}
+@mixin _991 {
+	@media (max-width: 991px) {
+		@content;
+	}
+}
+@mixin _768 {
+	@media (max-width: 768px) {
+		@content;
+	}
+}
+@mixin _576 {
+	@media (max-width: 576px) {
+		@content;
+	}
+}
+@mixin _368{
+	@media (max-width: 350px) {
+		@content;
+	}
+}
+
+@mixin font-h1($ff:('Open Sans', 'sans-serif'), $fw: bold, $fz: 72px, $lh: 98px, $color: $color-text) {
+	font-family: $ff;
+	font-weight: $fw;
+	font-size: $fz;
+	line-height: $lh;
+	text-transform: uppercase;
+	color: $color;
+	letter-spacing: -0.02em;
+
+}
+
+@mixin font-main-text($ff:('Noto Sans', 'sans-serif'), $fw: normal, $fz: 18, $lh: 25, $color: $color-text, $min-fz: 9, $min-lh: 13) {
+	font-family: $ff;
+	font-size: $fz + px;
+	line-height: $lh +px;
+	color: $color;
+	letter-spacing: 0.02em;
+	@include _991 {
+		font-size: calcFluid($min_fz, $fz, 320, 991);
+		line-height: calcFluid($min_fz, $lh, 320, 991);
+	}
+}
+
+@mixin font-section-title($ff:('Open Sans', 'sans-serif'), $fw: bold, $fz: 40, $lh: 54, $color: $color-text) {
+	font-family: $ff;
+	font-weight: $fw;
+	font-size: $fz + px;
+	line-height: $lh + px;
+	text-transform: uppercase;
+	color: $color;
+	letter-spacing: -0.02em;
+
+	@include _991 {
+	    font-size: calcFluid(18, $fz, 320, 991);
+		line-height: calcFluid(25, $lh, 320, 991);
+	}
+}
+
+@mixin font-text-title($ff:('Open Sans', 'sans-serif'), $fw: bold, $fz: 24, $lh: 33, $color: $color-text, $min-fz: 12, $min-lh: 17) {
+	font-family: $ff;
+	font-weight: $fw;
+	font-size: $fz + px;
+	line-height: $lh + px;
+	color: $color;
+	letter-spacing: 0.02em;
+
+	@include _991 {
+		font-size: calcFluid($min-fz, $fz, 320, 991);
+		line-height: calcFluid($min-lh, $lh, 320, 991);
+	}
+}
+
+
+@mixin section-mobile-padding($pt, $pb, $min_pt: 32, $min_pb: 32) {
+	@include _991 {
+		padding-top: calcFluid($min_pt, $pt, 320, 991);
+		padding-bottom: calcFluid($min_pb, $pb, 320, 991);
+	}
+}
+

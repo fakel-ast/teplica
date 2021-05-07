@@ -133,4 +133,4 @@ dmypy.json
 .idea/
 
 # node modules
-/node_modules/
+/standart/node_modules/

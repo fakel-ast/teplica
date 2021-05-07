@@ -1,0 +1,46 @@
+.section-hero {
+    padding: 134px 0;
+    background: url("/static/images/hero_img.jpg") no-repeat top center;
+    background-size: cover;
+}
+
+.hero {
+    &__title {
+       @include font-h1;
+    }
+    &__description {
+        margin-bottom: 56px;
+        font-family: $open_sans;
+        font-size: 32px;
+        line-height: 40px;
+    }
+    &__button {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+
+
+@media (max-width: 1200px) {
+    .section-hero {
+        padding: calcFluid(25, 134, 320, 1200) 0;
+
+    }
+    .hero {
+        &__title {
+            font-size: calcFluid(20, 72, 320, 1200);
+            line-height: calcFluid(27, 98, 320, 1200);
+        }
+        &__description {
+            margin-bottom: calcFluid(12, 56, 320, 1200);
+            font-size: calcFluid(9, 32, 320, 1200);
+            line-height: calcFluid(13, 40, 320, 1200);
+        }
+        &__button {
+            padding-left: calcFluid(9, 32, 320, 1200);
+            padding-right: calcFluid(9, 32, 320, 1200);
+        }
+    }
+
+}

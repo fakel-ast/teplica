@@ -1,0 +1,87 @@
+$check: "data:image/svg+xml;utf8;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI3IiB2aWV3Qm94PSIwIDAgOSA3IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMC41IDMuNDE2NjdMMi44MzMzMyA1Ljc1TDguMDgzMzMgMC41IiBzdHJva2U9IndoaXRlIi8+Cjwvc3ZnPgo=";
+
+html.lock {
+    overflow: hidden;
+}
+
+main {
+    padding-top: 116px;
+    @include _991 {
+        padding-top: calcFluid(46, 116, 320, 991);
+
+    }
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 18px 10px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: $open_sans;
+    cursor: pointer;
+
+    @include _1200 {
+        padding: calcFluid(7, 18, 320, 1200) calcFluid(9, 10, 320, 1200);
+    }
+    &-green {
+        background-color: $green;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 27px;
+        transition: background-color .2s linear;
+        &:hover {
+            background-color: $light-green;
+        }
+        &:active {
+            background-color: $dark-green;
+        }
+
+        @include _1200 {
+            font-size: calcFluid(10, 20, 320, 1200);
+            line-height: calcFluid(14, 27, 320, 1200);
+        }
+    }
+
+    &-order {
+        padding: 8px 24px;
+        background: none;
+        border: 1px solid #000;
+        @include font-main-text($ff: 'Open Sans');
+        transition: background-color .2s linear;
+
+        &:hover {
+            background-color: #F0F0F0;;
+        }
+        &:active {
+            outline: none;
+        }
+    }
+}
+
+
+
+.section-title {
+    margin-bottom: 75px;
+    text-align: center;
+    @include font-section-title;
+    @include _991 {
+        margin-bottom: calcFluid(32, 75, 320, 991);
+    }
+}
+
+.red-svg {
+    height: 98px;
+    width: 98px;
+    flex: 0 0 98px;
+    fill: #E1322D;
+    stroke: #fff;
+
+    @include _991 {
+        width: 50px;
+        height: calcFluid(50, 98, 320, 991);
+        flex: 0 0 calcFluid(50, 98, 320, 991);
+    }
+}

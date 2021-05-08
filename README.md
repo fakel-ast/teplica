@@ -1,6 +1,6 @@
 # How start landing
 Что бы запустить проект, нужно:
-  - Скопировать проект командой: git clone git@github.com:fakel-ast/teplica.git
+  - Скопировать проект командой: git clone https://github.com/fakel-ast/teplica.git
   - Создать виртаульное окружение:
     - Для windows: 
       - В папке conf прописать команду: python -m venv venv

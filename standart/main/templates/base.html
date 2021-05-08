@@ -60,7 +60,7 @@
                         <use xlink:href="{% static 'images/sprite.svg' %}#map-marker"></use>
                     </svg>
                     <p class="city-selected header__info-title" data-change="city">
-                        {{ sites.current.name }}
+                        {{ cities.current.title }}
                     </p>
                     <a class="city-all header__info-link" href="#" data-modal="modal-city" id="all-city">
                         Все города
@@ -71,9 +71,9 @@
                         <use xlink:href="{% static 'images/sprite.svg' %}#phone"></use>
                       </svg>
                      <p class="call__phone header__info-title" data-change="phone">
-                         {{ site_settings.phone }}
+                         {{ cities.current.phone }}
                      </p>
-                     <a class="call-order header__info-link" href="tel:{{ site_settings.get_phone_for_link }}" data-phone-change="true">Заказать звонок</a>
+                     <a class="call-order header__info-link" href="tel:{{ cities.current.get_phone_for_link }}" data-phone-change="true">Заказать звонок</a>
                  </div>
             </div>
         </div>
@@ -118,10 +118,10 @@
                 <a href="#" class="modal-close"></a>
                 <p class="modal__title">Выберете город</p>
                 <ul class="modal__list" data-simplebar="simple">
-                    {% for city in sites.all.iterator %}
+                    {% for city in cities.all.iterator %}
                         {% if city.settings %}
-                            <li class="modal__item {% if sites.current == city %} active {% endif %}">
-                                <a class="modal__link" href="{% url 'main:change_city' %}" data-domain="{{ city.domain }}" data-city="{{ city.settings.city }}" data-phone="{{ city.settings.phone }}" data-address="{{ city.settings.address }}">{{ city.settings.city }}</a>
+                            <li class="modal__item {% if cities.current == city %} active {% endif %}">
+                                <a class="modal__link" href="{% url 'main:change_city' %}" data-city="{{ city.title }}" data-city="{{ city.title }}" data-phone="{{ city.phone }}" data-address="{{ city.address }}">{{ city.title }}</a>
                             </li>
                         {% endif %}
                     {% endfor %}

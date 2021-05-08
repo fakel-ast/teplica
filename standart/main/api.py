@@ -1,13 +1,14 @@
-from django.contrib.sites.models import Site
 from django.http import JsonResponse
 from django.views import View
+
+from main.models import City
 
 
 class ChangeSessionCityView(View):
     def get(self, *args, **kwargs):
-        site_domain = self.request.GET.get('site_domain')
-        site = Site.objects.filter(domain=site_domain).first()
-        if site:
-            self.request.session['current_site'] = site.domain
+        get_city = self.request.GET.get('city')
+        city = City.objects.filter(title=get_city).first()
+        if city:
+            self.request.session['current_city'] = city.title
             return JsonResponse({'status': 'ok'})
         return JsonResponse({'status': 'not ok'})

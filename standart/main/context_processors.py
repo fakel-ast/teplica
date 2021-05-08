@@ -1,24 +1,23 @@
-from django.contrib.sites.models import Site
-
-from main.models.settings import Settings
+from main.models import City, Settings
 
 
 def website_settings(request):
     data = {}
 
-    session_site = request.session.get('current_site')
+    session_city = request.session.get('current_city')
 
-    if session_site:
-        current_site = Site.objects.filter(domain=session_site).first()
+    if session_city:
+        current_site = City.objects.filter(title=session_city).first()
     else:
-        current_site = Site.objects.get_current(request)
-    all_sites = Site.objects.all().order_by('name')
+        current_site = City.objects.filter(show_default=True).first() or City.objects.first()
 
-    data['sites'] = {
-        'all': all_sites,
+    all_city = City.objects.all()
+
+    data['cities'] = {
+        'all': all_city,
         'current': current_site,
     }
 
-    data['site_settings'] = Settings.get_current_site_settings(request)
+    data['site_settings'] = Settings.objects.filter(city=current_site).first()
 
     return data

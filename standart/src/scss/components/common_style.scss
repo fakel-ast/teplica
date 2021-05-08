@@ -58,6 +58,11 @@ main {
         &:active {
             outline: none;
         }
+
+        &.ordered {
+            border: 1px solid #C9C9C9;
+            color: $grey;
+        }
     }
 }
 

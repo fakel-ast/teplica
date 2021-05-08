@@ -47,7 +47,7 @@ class changeCity {
     async sendRequest(city) {
 
         let data = {
-            'site_domain': city.getAttribute('data-domain')
+            'city': city.getAttribute('data-city')
         }
         data = '?' + new URLSearchParams(data).toString();
         await makeRequest('get', city.getAttribute('href') + data, data);

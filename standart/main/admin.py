@@ -20,7 +20,7 @@ class ProductAdmin(admin.ModelAdmin):
             'fields': ['coords', 'balloon_text']
         }),
         ('Информация о филлиале', {
-            'fields': ['city', 'address', 'site', 'phone']
+            'fields': ['city']
         })
     )
 
@@ -28,5 +28,11 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(models.Comment)
 class ProductAdmin(admin.ModelAdmin):
     search_fields = ['fio', 'text']
+
+
+@admin.register(models.City)
+class ProductAdmin(admin.ModelAdmin):
+    search_fields = ['title']
+
 
 

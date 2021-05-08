@@ -16,4 +16,6 @@
       - В папке conf прописать команду: pip install -r requirements.txt
     - Для linux:
       - Скорее всего так же)
-  - Запустить django проложение: в папке standart (где лежит manage.py) прописать: python manage.py runserver
+  - Сделать миграции в папке standart (где лежит manage.py) командой: python manage.py makemigration & python manage.py migrate
+  - Создать минимальные элементы в бд командой: python manage.py defualt_settings
+  - Запустить django проложение, прописав: python manage.py runserver
